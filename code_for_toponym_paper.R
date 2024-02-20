@@ -31,6 +31,7 @@ tfc <- table(fc)
 tfc <- sort(tfc, decreasing=TRUE)
 tfc <- tfc/1000000
 mycol <- brewer.pal(9, "Set1") 
+# Figure 2
 barplot(tfc, col=mycol, ylim=c(0,5), ylab="Number of entries (million)", 
         xlab="Categories")
 # check how many NAs there are in the different columns
@@ -107,7 +108,7 @@ topZtest(strings="stead$", countries="GB",polygon=danelaw_polygon)
 
 # Other functions
 getData(countries=c("DE", "GB"))  # example of updating downloaded data
-# example of lists symbols and their frequencies, here for Thailand
+# examples of lists symbols and their frequencies, here for Thailand
 ortho(countries="TH", column="name")  # 
 ortho(countries="TH", column="alternatenames")  # 
 
@@ -144,12 +145,17 @@ nrow(generic_agua)  # 477
 generic_agua$name
 # filtering manually
 # the following are out for containing agua
-# 1:4,7:11,15:34,37,49:51,53:62,64:72,74:79,82:89,92:96,98,100:102,111:120,134,163,166:173,177,179:203,285:298,343:352,355,258:359,361,364,372,374,381:382,389:392,394:407,419,429:432,434:436,438,440:444,450,454,470:472,475
+# 1:4,7:11,15:34,37,49:51,53:62,64:72,74:79,82:89,92:96,98,100:102,111:120,134,163,
+# 166:173,177,179:203,285:298,343:352,355,258:359,361,364,372,374,381:382,389:392,
+# 394:407,419,429:432,434:436,438,440:444,450,454,470:472,475
 # the following contain one of the search strings in other Spanish words
 # 90,97,104,125,159,211,240,301,465
 # the following contain Jagua
 # 41,91,242:256,265:276,284,363,415:416,460
-out <- c(1:4,7:11,15:34,37,49:51,53:62,64:72,74:79,82:89,92:96,98,100:102,111:120,134,163,166:173,177,179:203,285:298,343:352,355,258:359,361,364,372,374,381:382,389:392,394:407,419,429:432,434:436,438,440:444,450,454,470:472,475,90,97,104,125,159,211,240,301,465,41,91,242:256,265:276,284,363,415:416,460)
+out <- c(1:4,7:11,15:34,37,49:51,53:62,64:72,74:79,82:89,92:96,98,100:102,111:120,
+         134,163,166:173,177,179:203,285:298,343:352,355,258:359,361,364,372,374,
+         381:382,389:392,394:407,419,429:432,434:436,438,440:444,450,454,470:472,
+         475,90,97,104,125,159,211,240,301,465,41,91,242:256,265:276,284,363,415:416,460)
 generic_agua_filtered <- generic_agua[-out,]
 nrow(generic_agua_filtered)
 mapper(mapdata=generic_agua_filtered, label="Names in -gua, -agua, etc.")
@@ -164,10 +170,10 @@ campbell_names <- c("Ayampuc", "Ayarza", "Ipala", "Sanarate", "Sanjaje",
 top(strings=campbell_names, countries=c("GT", "HN", "SV", "NI"), 
     feat.class=c("P", "H", "T", "A", "L", "R", "V", "U"), 
     name="campbell_names")
-# checking what the dot is to the west
+# check what the dot is to the west
 western_dot <- which(campbell_names$longitude < -91)
 campbell_names$name[western_dot]
-# excluding it
+# exclude it
 cambpell_names_redux <- campbell_names[-western_dot,]
 mapper(mapdata=cambpell_names_redux, label="Names from Campbell")
 
@@ -191,6 +197,8 @@ top("ow$", "DE", colors="blue", regions=1)
 # Figure 9
 # finding all names in -in
 top(strings="in$", countries="DE", name="insuffix")
+# inspecting them
+insuffix$name
 # identifying some to be excluded
 ein <- grep("ein$", insuffix$name)
 ain <- grep("ain$", insuffix$name)
