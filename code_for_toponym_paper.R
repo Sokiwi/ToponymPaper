@@ -108,7 +108,7 @@ topZtest(strings="stead$", countries="GB",polygon=danelaw_polygon)
 
 # Other functions
 getData(countries=c("DE", "GB"))  # example of updating downloaded data
-# examples of lists symbols and their frequencies, here for Thailand
+# examples of lists of symbols and their frequencies, here for Thailand
 ortho(countries="TH", column="name")  # 
 ortho(countries="TH", column="alternatenames")  # 
 
