@@ -134,7 +134,7 @@ length(unique(agua_all_feats$group))  # 29
 length(unique(agua$group))  # 29
 
 # Figure 3
-mapper(mapdata=agua, label="Names in -(a)gua/-ahua from Thompson")
+mapper(mapdata=agua, title="Names in -(a)gua/-ahua from Thompson")
 
 # Figure 4
 top(strings=c("agua$", "gua$", "ua$", "ahua$", "guara$",
@@ -158,7 +158,7 @@ out <- c(1:4,7:11,15:34,37,49:51,53:62,64:72,74:79,82:89,92:96,98,100:102,111:12
          475,90,97,104,125,159,211,240,301,465,41,91,242:256,265:276,284,363,415:416,460)
 generic_agua_filtered <- generic_agua[-out,]
 nrow(generic_agua_filtered)
-mapper(mapdata=generic_agua_filtered, label="Names in -gua, -agua, etc.")
+mapper(mapdata=generic_agua_filtered, title="Names in -gua, -agua, etc.")
 
 # Figure 5
 campbell_names <- c("Ayampuc", "Ayarza", "Ipala", "Sanarate", "Sanjaje", 
@@ -175,7 +175,7 @@ western_dot <- which(campbell_names$longitude < -91)
 campbell_names$name[western_dot]
 # exclude it
 cambpell_names_redux <- campbell_names[-western_dot,]
-mapper(mapdata=cambpell_names_redux, label="Names from Campbell")
+mapper(mapdata=cambpell_names_redux, title="Names from Campbell")
 
 # Figure 6
 campbell_agua <- c("Pasasagua", "Jagua", "Sasagua", "Xagua", "Eraxagua", 
@@ -184,7 +184,7 @@ campbell_agua <- c("Pasasagua", "Jagua", "Sasagua", "Xagua", "Eraxagua",
 top(strings=campbell_agua, countries=c("GT", "HN", "SV", "NI"), 
     feat.class=c("P", "H", "T", "A", "L", "R", "V", "U"), 
     name="campbell_agua")
-mapper(mapdata=campbell_agua, label="Names in -(a)gua/-ahua from Campbell")
+mapper(mapdata=campbell_agua, title="Names in -(a)gua/-ahua from Campbell")
 
 
 ## SECTION 5. Case study 2: Slavic toponyms in Germany
@@ -209,7 +209,7 @@ insuffix <- insuffix[-del,]
 # getting data for the heading, which will not be produced automatically
 # since the filtering requires us to use mapper(), not top()
 nrow(insuffix)  # 585
-mapper(insuffix, regions=1, colors="green", label="in$ 585")
+mapper(insuffix, regions=1, colors="green", title="in$ 585")
 
 # Figure 10
 p <- createPolygon(countries="DE", 
